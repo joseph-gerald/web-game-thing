@@ -1,0 +1,156 @@
+:root {
+    --text: #151f1a;
+    --background: #f4f7f6;
+    --primary: 109, 117, 151;
+    --secondary: 180, 193, 201;
+    --accent: 139, 155, 173;
+
+    /*
+    primary: #32ba4e;
+    secondary: #b4c1c9;
+    accent: #8b9bad;
+    */
+
+    --primaryc: rgb(var(--primary));
+    --secondaryc: rgb(var(--secondary));
+    --accentc: rgb(var(--accent));
+}
+
+body {
+    font-family: 'Kumbh Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background);
+    color: var(--text);
+
+    margin: 0;
+    overflow: hidden;
+}
+
+#loading-cover {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition-delay: 100ms;
+    transition-duration: 550ms;
+
+    background-color: var(--background);
+    backdrop-filter: blur(25px);
+
+    user-select: none;
+}
+
+#loading-cover.done {
+    opacity: 0;
+}
+
+input {
+    border: 1px solid rgba(var(--secondary), 0.5);
+    border-radius: 7px;
+    height: 15px;
+    padding: 10px;
+
+    outline: none;
+    font-family: inherit;
+
+    transition-duration: 150ms;
+}
+
+input:focus {
+    border: 1px solid rgba(var(--primary), 0.5);
+}
+
+button {
+    border: none;
+    border-radius: 7px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-family: inherit;
+
+    transition-duration: 150ms;
+}
+
+h1 {
+    margin: 0;
+}
+
+/* notifications */
+
+.notification-container {
+    right: 10px;
+    bottom: 10px;
+    position: fixed;
+    z-index: 1000;
+}
+
+notification {
+    min-width: 275px;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: rgba(217, 219, 219, 0.4);
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(35px);
+
+    border-left: 5px solid var(--primaryc);
+
+    padding: 7px;
+    border-radius: 5px;
+    margin-top: 10px;
+
+    animation: notification-in 0.75s;
+
+    transition-duration: 500ms;
+}
+
+notification #title {
+    margin: 0;
+}
+
+notification #message {
+    margin: 0;
+}
+
+notification.expired {
+    opacity: 0;
+
+    transform: translateY(25%);
+    filter: blur(5px);
+    scale: .85;
+}
+
+notification.warning {
+    border-left: 5px solid #ff2f2fc0;
+}
+
+notification.success {
+    border-left: 5px solid #32ba4ec0;
+}
+
+notification.important {
+    border-left: 5px solid #bd2fffc0;
+}
+
+/* other stuff */
+
+kbd {
+    background-color: #eee;
+    border-radius: 3px;
+    border: 1px solid #b4b4b4;
+    box-shadow:
+        0 1px 1px rgba(0, 0, 0, 0.2),
+        0 2px 0 0 rgba(255, 255, 255, 0.7) inset;
+    color: #333;
+    display: inline-block;
+    font-size: 0.85em;
+    font-weight: 700;
+    line-height: 1;
+    padding: 2px 4px;
+    white-space: nowrap;
+}
